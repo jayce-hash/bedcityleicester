@@ -12,49 +12,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* * BRAND GUIDELINES & CSS VARIABLES
-         * Primary Green: #8CC63F (Matches the vibrant logo text)
-         * Brand Dark: #1E252D (Matches the dark background of their signage/logo)
-         * Fonts: Montserrat (Bold, rounded, modern headings), Open Sans (Clean, readable body)
-         */
         :root {
             --primary-green: #8CC63F;
             --primary-green-hover: #7ab334;
             --brand-dark: #1E252D;
             --brand-darker: #151A20;
-            --text-light: #F4F4F5;
+            --brand-light: #f9f9fa;
+            --text-light: #ffffff;
             --text-dark: #333333;
             --font-heading: 'Montserrat', sans-serif;
             --font-body: 'Open Sans', sans-serif;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: var(--font-body);
             color: var(--text-dark);
             line-height: 1.6;
-            background-color: var(--text-light);
+            background-color: var(--brand-light);
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Typography */
         h1, h2, h3, h4 {
             font-family: var(--font-heading);
             color: var(--brand-dark);
             text-transform: uppercase;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        a { text-decoration: none; color: inherit; }
 
-        /* Buttons */
         .btn {
             display: inline-block;
             background-color: var(--primary-green);
@@ -76,14 +63,24 @@
             transform: translateY(-2px);
         }
 
-        /* Mobile First Layouts */
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-green);
+            color: var(--brand-dark);
+        }
+
         .container {
             width: 100%;
             padding: 0 1.5rem;
             margin: 0 auto;
         }
 
-        /* Header & Nav */
+        /* Navigation */
         header {
             background-color: var(--brand-darker);
             color: var(--text-light);
@@ -101,22 +98,13 @@
             gap: 1rem;
         }
 
-        .logo-text {
-            font-family: var(--font-heading);
-            font-weight: 900;
-            font-size: 2rem;
-            letter-spacing: -1px;
-        }
+        .logo-text { font-family: var(--font-heading); font-weight: 900; font-size: 2rem; letter-spacing: -1px; }
+        .logo-text span { color: var(--primary-green); }
+        
+        nav ul { display: flex; gap: 1rem; list-style: none; font-size: 0.9rem; font-weight: 600; text-transform: uppercase;}
+        nav a:hover { color: var(--primary-green); }
 
-        .logo-text span {
-            color: var(--primary-green);
-        }
-
-        .contact-top {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--primary-green);
-        }
+        .contact-top { font-weight: 600; font-size: 1.1rem; color: var(--primary-green); }
 
         /* Hero Section */
         .hero {
@@ -125,154 +113,60 @@
             padding: 4rem 0;
             text-align: center;
         }
+        .hero h1 { color: var(--text-light); font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem; line-height: 1.1; }
+        .hero h1 span { color: var(--primary-green); }
+        .hero p { font-size: 1.125rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-        .hero h1 {
-            color: var(--text-light);
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-        }
+        /* Trust Banner */
+        .trust-banner { background-color: var(--primary-green); color: var(--brand-darker); padding: 1.5rem 0; font-family: var(--font-heading); font-weight: 700; }
+        .trust-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; text-align: center; }
+        .trust-item { padding: 0.5rem; border: 2px solid var(--brand-darker); border-radius: 4px; }
 
-        .hero h1 span {
-            color: var(--primary-green);
-        }
+        /* General Sections */
+        section { padding: 4rem 0; }
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 2.5rem; font-weight: 900; }
+        .bg-white { background-color: #ffffff; }
 
-        .hero p {
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        /* Grids */
+        .grid-2 { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        .grid-3 { display: grid; grid-template-columns: 1fr; gap: 2rem; }
 
-        /* Trust Banner (USPs) */
-        .trust-banner {
-            background-color: var(--primary-green);
-            color: var(--brand-darker);
-            padding: 1.5rem 0;
-            font-family: var(--font-heading);
-            font-weight: 700;
-        }
-
-        .trust-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            text-align: center;
-        }
-
-        .trust-item {
-            padding: 0.5rem;
-            border: 2px solid var(--brand-darker);
-            border-radius: 4px;
-        }
-
-        /* Section Styling */
-        section {
-            padding: 4rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2.5rem;
-            font-weight: 900;
-        }
-
-        /* Info Grid */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        .info-card {
-            background: white;
+        /* Cards */
+        .card {
+            background: var(--brand-light);
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             border-top: 4px solid var(--brand-dark);
-        }
-
-        .info-card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-
-        .highlight-text {
-            color: var(--primary-green);
-            font-weight: 700;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--brand-darker);
-            color: var(--text-light);
-            padding: 3rem 0;
             text-align: center;
         }
+        .card h3 { margin-bottom: 1rem; font-size: 1.25rem; }
+        .price { font-size: 1.5rem; font-weight: 700; color: var(--primary-green); margin: 1rem 0; display: block; font-family: var(--font-heading);}
+        .price strike { color: #888; font-size: 1rem; margin-right: 0.5rem; }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
+        /* Form */
+        .contact-form { display: flex; flex-direction: column; gap: 1rem; max-width: 600px; margin: 0 auto; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 1rem; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-body); }
+        .contact-form textarea { resize: vertical; min-height: 150px; }
 
-        footer h4 {
-            color: var(--primary-green);
-            margin-bottom: 1rem;
-        }
+        /* Footer */
+        footer { background-color: var(--brand-darker); color: var(--text-light); padding: 3rem 0; text-align: center; }
+        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        footer h4 { color: var(--primary-green); margin-bottom: 1rem; }
+        footer p { margin-bottom: 0.5rem; opacity: 0.9; }
+        .copyright { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.875rem; opacity: 0.7; }
 
-        footer p {
-            margin-bottom: 0.5rem;
-            opacity: 0.9;
-        }
-
-        .copyright {
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.875rem;
-            opacity: 0.7;
-        }
-
-        /* Desktop Optimization (Min-width: 768px) */
+        /* Desktop Optimization */
         @media (min-width: 768px) {
-            .container {
-                max-width: 1200px;
-                padding: 0 2rem;
-            }
-
-            .header-content {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-
-            .hero {
-                padding: 8rem 0;
-            }
-
-            .hero h1 {
-                font-size: 4rem;
-            }
-
-            .hero p {
-                font-size: 1.25rem;
-            }
-
-            .trust-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .info-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-grid {
-                grid-template-columns: repeat(3, 1fr);
-                text-align: left;
-            }
+            .container { max-width: 1200px; padding: 0 2rem; }
+            .header-content { flex-direction: row; justify-content: space-between; }
+            .hero { padding: 8rem 0; }
+            .hero h1 { font-size: 4rem; }
+            .trust-grid { grid-template-columns: repeat(4, 1fr); }
+            .grid-2 { grid-template-columns: repeat(2, 1fr); }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+            .card { text-align: left; }
+            .footer-grid { grid-template-columns: repeat(4, 1fr); text-align: left; }
         }
     </style>
 </head>
@@ -281,9 +175,15 @@
     <header>
         <div class="container header-content">
             <div class="logo-text">BED <span>CITY</span></div>
-            <div class="contact-top">
-                Call us: 0116 2559140
-            </div>
+            <nav>
+                <ul>
+                    <li><a href="#ranges">Ranges</a></li>
+                    <li><a href="#offers">Mega Sale</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="contact-top">0116 2559140</div>
         </div>
     </header>
 
@@ -292,7 +192,10 @@
             <div class="container">
                 <h1>SLEEP BETTER. <br><span>LIVE BETTER.</span></h1>
                 <p>Leicester's No. 1 Bed & Mattress Shop. Over 27 years of providing the East Midlands with premium beds at unbeatable prices.</p>
-                <a href="#locations" class="btn">Visit Our Showroom</a>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#offers" class="btn">View Mega Sale</a>
+                    <a href="#locations" class="btn btn-outline">Find Our Stores</a>
+                </div>
             </div>
         </section>
 
@@ -305,25 +208,68 @@
             </div>
         </div>
 
-        <section class="container">
+        <section id="ranges" class="container">
+            <h2 class="section-title">OUR RANGES</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Mattresses</h3>
+                    <p>From memory foam to pocket sprung, find the perfect support for your sleep style. We stock all standard UK sizes.</p>
+                </div>
+                <div class="card">
+                    <h3>Divan Beds</h3>
+                    <p>Maximize your bedroom space with our customized divan bases, featuring multiple storage drawer configurations.</p>
+                </div>
+                <div class="card">
+                    <h3>Bed Frames</h3>
+                    <p>Complete your room's aesthetic. Browse our extensive selection of wooden, metal, and upholstered bed frames.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="offers" class="bg-white">
+            <div class="container">
+                <h2 class="section-title">CURRENT MEGA SALE</h2>
+                <div class="grid-2">
+                    <div class="card" style="border-top-color: var(--primary-green);">
+                        <h3>Hybrid Pocket Sprung Mattress</h3>
+                        <p>Our top-selling hybrid mattress combining the support of pocket springs with premium comfort layers.</p>
+                        <span class="price"><strike>£499</strike> £269 (Double)</span>
+                        <p><em>*King Size also reduced to £289. Limited Time Offer - First come, first served!</em></p>
+                    </div>
+                    <div class="card" style="border-top-color: var(--primary-green);">
+                        <h3>SleepSoul Comfort 800</h3>
+                        <p>Incredible value pocket mattress. Features 800 individual pocket springs for tailored support.</p>
+                        <span class="price"><strike>£184.95</strike> £99 (Special Offer)</span>
+                        <p><em>*Includes a massive 10 Year Warranty for ultimate peace of mind.</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="container">
             <h2 class="section-title">WHY CHOOSE BED CITY?</h2>
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>Unbeatable Experience</h3>
-                    <p>Established in Leicester in 1999, we have over 27 years of dedicated experience in the bedding industry. In 2021, we proudly expanded with a second branch in Loughborough. We know exactly what it takes to find you the perfect night's sleep.</p>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Leicester's Trusted Bed Experts</h3>
+                    <p>Established in Leicester in 1999, we have over 27 years of dedicated experience in the bedding industry. In 2021, we proudly expanded with a second branch in Loughborough. We pride ourselves on honest advice and zero-pressure sales.</p>
                 </div>
-                <div class="info-card">
+                <div class="card">
                     <h3>Fast & Reliable Delivery</h3>
-                    <p>Don't wait weeks for a good night's rest. We offer <span class="highlight-text">Next Day Delivery</span> on 98% of our mattresses. In some cases, we can even accommodate same-day delivery. Ask in-store for details.</p>
+                    <p>Don't wait weeks for a good night's rest. We offer <strong>Next Day Delivery on 98% of our mattresses</strong>. In some cases, we can even accommodate same-day delivery. Ask in-store for details about delivery to your specific postcode.</p>
                 </div>
-                <div class="info-card">
-                    <h3>Massive Showroom Sales</h3>
-                    <p>We consistently offer massive savings on Hybrid Pocket Sprung mattresses, frames, and divans. Come visit us during our current Mega Sale to secure premium products at heavily discounted rates.</p>
-                </div>
-                <div class="info-card">
-                    <h3>Customer First Approach</h3>
-                    <p>Shopping for a bed should be stress-free. That is why we offer dedicated, free customer parking at our locations and ensure our doors are open on Sundays from 10:30 to 3:30 for your convenience.</p>
-                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="bg-white">
+            <div class="container">
+                <h2 class="section-title">GET IN TOUCH</h2>
+                <form class="contact-form" action="#" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="tel" name="phone" placeholder="Phone Number">
+                    <textarea name="message" placeholder="How can we help you?" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
             </div>
         </section>
     </main>
@@ -333,25 +279,31 @@
             <div>
                 <h4>LEICESTER BRANCH</h4>
                 <p>Bed City Leicester</p>
-                <p>Postcode: LE3 0BQ</p>
-                <p>Phone: 0116 2559140</p>
+                <p>LE3 0BQ</p>
+                <p>Tel: 0116 2559140</p>
             </div>
             <div>
                 <h4>LOUGHBOROUGH BRANCH</h4>
                 <p>Bed City Loughborough</p>
                 <p>Opened in 2021</p>
-                <p>Contact store for details</p>
+                <p>Tel: [Insert Loughborough Number]</p>
             </div>
             <div>
                 <h4>OPENING HOURS</h4>
-                <p>Monday - Saturday: Standard Hours</p>
-                <p style="color: var(--primary-green); font-weight: bold;">Sunday: 10:30 - 3:30</p>
+                <p>Mon - Sat: 9:30 AM - 5:30 PM</p>
+                <p style="color: var(--primary-green); font-weight: bold;">Sunday: 10:30 AM - 3:30 PM</p>
                 <p>Free Customer Parking Available</p>
+            </div>
+            <div>
+                <h4>HELPFUL LINKS</h4>
+                <p><a href="#">Delivery Information</a></p>
+                <p><a href="#">Terms & Conditions</a></p>
+                <p><a href="#">Privacy Policy</a></p>
             </div>
         </div>
         <div class="container">
             <div class="copyright">
-                &copy; 2026 Bed City. All Rights Reserved. Leicester's No.1 Bed & Mattress Shop.
+                &copy; 2026 Bed City. All Rights Reserved. 
             </div>
         </div>
     </footer>
