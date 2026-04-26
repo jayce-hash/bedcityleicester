@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bed City Leicester & Loughborough. Leicester's No. 1 Bed & Mattress Shop since 1999. Enjoy next-day delivery, free customer parking, and expert advice.">
+    <meta name="keywords" content="beds Leicester, mattresses Leicester, Bed City, next day delivery mattresses, bed shop Loughborough, cheap beds Leicester">
+    <title>Bed City | Leicester's No. 1 Bed & Mattress Shop</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* * BRAND GUIDELINES & CSS VARIABLES
+         * Primary Green: #8CC63F (Matches the vibrant logo text)
+         * Brand Dark: #1E252D (Matches the dark background of their signage/logo)
+         * Fonts: Montserrat (Bold, rounded, modern headings), Open Sans (Clean, readable body)
+         */
+        :root {
+            --primary-green: #8CC63F;
+            --primary-green-hover: #7ab334;
+            --brand-dark: #1E252D;
+            --brand-darker: #151A20;
+            --text-light: #F4F4F5;
+            --text-dark: #333333;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--text-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--brand-dark);
+            text-transform: uppercase;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: var(--brand-dark);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-green-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile First Layouts */
+        .container {
+            width: 100%;
+            padding: 0 1.5rem;
+            margin: 0 auto;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--brand-darker);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 4px solid var(--primary-green);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .logo-text span {
+            color: var(--primary-green);
+        }
+
+        .contact-top {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--brand-dark);
+            color: var(--text-light);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: var(--text-light);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: var(--primary-green);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Trust Banner (USPs) */
+        .trust-banner {
+            background-color: var(--primary-green);
+            color: var(--brand-darker);
+            padding: 1.5rem 0;
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .trust-item {
+            padding: 0.5rem;
+            border: 2px solid var(--brand-darker);
+            border-radius: 4px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            font-weight: 900;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--brand-dark);
+        }
+
+        .info-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .highlight-text {
+            color: var(--primary-green);
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--brand-darker);
+            color: var(--text-light);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        footer h4 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .copyright {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+
+        /* Desktop Optimization (Min-width: 768px) */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 1200px;
+                padding: 0 2rem;
+            }
+
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .hero {
+                padding: 8rem 0;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+            }
+
+            .trust-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo-text">BED <span>CITY</span></div>
+            <div class="contact-top">
+                Call us: 0116 2559140
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>SLEEP BETTER. <br><span>LIVE BETTER.</span></h1>
+                <p>Leicester's No. 1 Bed & Mattress Shop. Over 27 years of providing the East Midlands with premium beds at unbeatable prices.</p>
+                <a href="#locations" class="btn">Visit Our Showroom</a>
+            </div>
+        </section>
+
+        <div class="trust-banner">
+            <div class="container trust-grid">
+                <div class="trust-item">NEXT DAY DELIVERY*</div>
+                <div class="trust-item">OPEN SUNDAYS (10:30 - 3:30)</div>
+                <div class="trust-item">FREE CUSTOMER PARKING</div>
+                <div class="trust-item">ESTABLISHED 1999</div>
+            </div>
+        </div>
+
+        <section class="container">
+            <h2 class="section-title">WHY CHOOSE BED CITY?</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Unbeatable Experience</h3>
+                    <p>Established in Leicester in 1999, we have over 27 years of dedicated experience in the bedding industry. In 2021, we proudly expanded with a second branch in Loughborough. We know exactly what it takes to find you the perfect night's sleep.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Fast & Reliable Delivery</h3>
+                    <p>Don't wait weeks for a good night's rest. We offer <span class="highlight-text">Next Day Delivery</span> on 98% of our mattresses. In some cases, we can even accommodate same-day delivery. Ask in-store for details.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Massive Showroom Sales</h3>
+                    <p>We consistently offer massive savings on Hybrid Pocket Sprung mattresses, frames, and divans. Come visit us during our current Mega Sale to secure premium products at heavily discounted rates.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Customer First Approach</h3>
+                    <p>Shopping for a bed should be stress-free. That is why we offer dedicated, free customer parking at our locations and ensure our doors are open on Sundays from 10:30 to 3:30 for your convenience.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="locations">
+        <div class="container footer-grid">
+            <div>
+                <h4>LEICESTER BRANCH</h4>
+                <p>Bed City Leicester</p>
+                <p>Postcode: LE3 0BQ</p>
+                <p>Phone: 0116 2559140</p>
+            </div>
+            <div>
+                <h4>LOUGHBOROUGH BRANCH</h4>
+                <p>Bed City Loughborough</p>
+                <p>Opened in 2021</p>
+                <p>Contact store for details</p>
+            </div>
+            <div>
+                <h4>OPENING HOURS</h4>
+                <p>Monday - Saturday: Standard Hours</p>
+                <p style="color: var(--primary-green); font-weight: bold;">Sunday: 10:30 - 3:30</p>
+                <p>Free Customer Parking Available</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                &copy; 2026 Bed City. All Rights Reserved. Leicester's No.1 Bed & Mattress Shop.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
