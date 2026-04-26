@@ -35,7 +35,7 @@
             line-height: 1.6;
             background-color: var(--brand-light);
             -webkit-font-smoothing: antialiased;
-            font-size: 16px; /* Base size for rem scaling */
+            font-size: 16px; 
         }
 
         h1, h2, h3, h4 {
@@ -59,21 +59,24 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 0.95rem;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(140, 198, 63, 0.3);
         }
 
         .btn:hover {
             background-color: var(--primary-green-hover);
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(140, 198, 63, 0.4);
         }
 
         .btn-outline {
             background-color: transparent;
             border: 2px solid var(--primary-green);
             color: var(--primary-green);
+            box-shadow: none;
         }
         
         .btn-outline:hover {
@@ -81,14 +84,11 @@
             color: var(--brand-dark);
         }
 
-        /* Layout Containers */
         .container {
             width: 100%;
-            padding: 0 1.5rem; /* Strict mobile padding */
+            padding: 0 1.5rem; 
             margin: 0 auto;
         }
-
-        /* ----- MOBILE FIRST STYLES ----- */
 
         /* Navigation */
         header {
@@ -99,6 +99,7 @@
             top: 0;
             z-index: 100;
             border-bottom: 4px solid var(--primary-green);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
 
         .header-content {
@@ -108,188 +109,136 @@
             gap: 1rem;
         }
 
-        .logo-img {
-            max-height: 65px; /* Scaled down for mobile header balance */
-            width: auto;
-            display: block;
-            border-radius: 50%;
-        }
+        .logo-img { max-height: 65px; width: auto; display: block; border-radius: 50%; }
         
-        nav ul { 
-            display: flex; 
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.25rem; 
-            list-style: none; 
-            font-size: 0.85rem; 
-            font-weight: 600; 
-            text-transform: uppercase;
-        }
-        
+        nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; list-style: none; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
         nav a:hover { color: var(--primary-green); transition: color 0.2s ease; }
+        .contact-top { font-weight: 700; font-size: 1.1rem; color: var(--primary-green); letter-spacing: 0.5px; }
 
-        .contact-top { 
-            font-weight: 700; 
-            font-size: 1.1rem; 
-            color: var(--primary-green); 
-            letter-spacing: 0.5px;
-        }
-
-        /* Hero Section */
+        /* Modern Hero with Image Overlay */
         .hero {
+            position: relative;
             background-color: var(--brand-dark);
+            /* PREMIUM PLACEHOLDER IMAGE */
+            background-image: url('https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
             color: var(--text-light);
-            padding: 4rem 0 5rem;
+            padding: 6rem 0 7rem;
             text-align: center;
         }
-        .hero h1 { 
-            color: var(--text-light); 
-            font-size: 2.25rem; /* Tightened for mobile wrapping */
-            font-weight: 900; 
-            margin-bottom: 1rem; 
+
+        /* Sleek dark gradient overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(30, 37, 45, 0.7), rgba(21, 26, 32, 0.95));
+            z-index: 1;
         }
+
+        .hero .container { position: relative; z-index: 2; }
+        .hero h1 { color: var(--text-light); font-size: 2.25rem; font-weight: 900; margin-bottom: 1rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
         .hero h1 span { color: var(--primary-green); }
-        .hero p { 
-            font-size: 1rem; 
-            margin-bottom: 2rem; 
-            max-width: 600px; 
-            margin-left: auto; 
-            margin-right: auto; 
-            color: #e2e8f0;
-        }
+        .hero p { font-size: 1rem; margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; color: #e2e8f0; text-shadow: 0 1px 5px rgba(0,0,0,0.5); }
 
         /* Trust Banner */
-        .trust-banner { 
-            background-color: var(--primary-green); 
-            color: var(--brand-darker); 
-            padding: 1.5rem 0; 
-            font-family: var(--font-heading); 
-            font-weight: 700; 
-        }
-        .trust-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 0.75rem; 
-            text-align: center; 
-        }
-        .trust-item { 
-            padding: 0.75rem; 
-            border: 2px solid rgba(21, 26, 32, 0.15); 
-            border-radius: 4px; 
-            font-size: 0.9rem;
-            letter-spacing: 0.5px; 
-        }
+        .trust-banner { background-color: var(--primary-green); color: var(--brand-darker); padding: 1.5rem 0; font-family: var(--font-heading); font-weight: 700; }
+        .trust-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; text-align: center; }
+        .trust-item { padding: 0.75rem; border: 2px solid rgba(21, 26, 32, 0.15); border-radius: 4px; font-size: 0.9rem; letter-spacing: 0.5px; }
 
         /* General Sections */
-        section { padding: 4rem 0; }
-        .section-title { 
-            text-align: center; 
-            font-size: 2rem; 
-            margin-bottom: 2.5rem; 
-            font-weight: 900; 
-            letter-spacing: 1px; 
-        }
+        section { padding: 5rem 0; }
+        .section-title { text-align: center; font-size: 2.25rem; margin-bottom: 3.5rem; font-weight: 900; letter-spacing: 1px; }
         .bg-white { background-color: #ffffff; }
 
-        /* Grids */
-        .grid-2 { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-        .grid-3 { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+        /* CSS Dot Pattern for Texture */
+        .pattern-bg {
+            background-color: var(--brand-light);
+            background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
 
-        /* Cards */
+        /* Grids */
+        .grid-2 { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        .grid-3 { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+
+        /* Image Cards (Sexy & Modern) */
         .card {
-            background: var(--brand-light);
-            padding: 2rem 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--brand-dark);
-            text-align: center;
-            transition: transform 0.3s ease;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden; /* Keeps images flush to the corners */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
-        .card:hover { transform: translateY(-5px); }
-        .card h3 { margin-bottom: 1rem; font-size: 1.25rem; }
-        .card p { font-size: 0.95rem; color: #4a5568; }
-        .price { 
-            font-size: 1.75rem; 
-            font-weight: 700; 
-            color: var(--primary-green); 
-            margin: 1.25rem 0; 
-            display: block; 
-            font-family: var(--font-heading);
+        
+        .card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
         }
+
+        .card-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-bottom: 4px solid var(--primary-green);
+        }
+
+        .card-content { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column;}
+        .card-content h3 { margin-bottom: 1rem; font-size: 1.35rem; }
+        .card-content p { font-size: 0.95rem; color: #4a5568; margin-bottom: 1.5rem; flex-grow: 1;}
+        
+        .price { font-size: 1.85rem; font-weight: 900; color: var(--primary-green); margin-bottom: 1rem; display: block; font-family: var(--font-heading); }
         .price strike { color: #a0aec0; font-size: 1.1rem; margin-right: 0.5rem; }
 
+        /* Feature Cards (No images, just icons/text) */
+        .feature-card {
+            background: var(--brand-dark);
+            color: var(--text-light);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border-bottom: 4px solid var(--primary-green);
+        }
+        .feature-card h3 { color: var(--primary-green); margin-bottom: 1rem; }
+        .feature-card p { color: #e2e8f0; }
+
         /* Form */
-        .contact-form { display: flex; flex-direction: column; gap: 1.25rem; max-width: 600px; margin: 0 auto; }
-        .contact-form input, .contact-form textarea { 
-            width: 100%; 
-            padding: 1rem 1.25rem; 
-            border: 1px solid #cbd5e1; 
-            border-radius: 4px; 
-            font-family: var(--font-body); 
-            font-size: 1rem; 
-        }
-        .contact-form input:focus, .contact-form textarea:focus { 
-            outline: none; 
-            border-color: var(--primary-green); 
-            box-shadow: 0 0 0 3px rgba(140, 198, 63, 0.2); 
-        }
+        .contact-form { display: flex; flex-direction: column; gap: 1.25rem; max-width: 600px; margin: 0 auto; background: #fff; padding: 3rem 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);}
+        .contact-form input, .contact-form textarea { width: 100%; padding: 1rem 1.25rem; border: 1px solid #cbd5e1; border-radius: 6px; font-family: var(--font-body); font-size: 1rem; background-color: #f8fafc;}
+        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--primary-green); box-shadow: 0 0 0 3px rgba(140, 198, 63, 0.2); background-color: #fff;}
         .contact-form textarea { resize: vertical; min-height: 150px; }
 
         /* Footer */
-        footer { 
-            background-color: var(--brand-darker); 
-            color: var(--text-light); 
-            padding: 4rem 0 2rem; 
-            text-align: center; 
-        }
-        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 3rem; }
+        footer { background-color: var(--brand-darker); color: var(--text-light); padding: 5rem 0 2rem; text-align: center; }
+        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; margin-bottom: 3rem; }
         footer h4 { color: var(--primary-green); margin-bottom: 1.25rem; font-size: 1.1rem; letter-spacing: 1px; }
         footer p { margin-bottom: 0.75rem; opacity: 0.85; font-size: 0.95rem; }
-        
-        .footer-logo {
-            max-width: 120px;
-            height: auto;
-            margin: 0 auto 1.5rem auto;
-            display: block;
-            border-radius: 50%;
-        }
+        .footer-logo { max-width: 120px; height: auto; margin: 0 auto 1.5rem auto; display: block; border-radius: 50%; }
+        .copyright { padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.5; }
 
-        .copyright { 
-            padding-top: 2rem; 
-            border-top: 1px solid rgba(255,255,255,0.1); 
-            font-size: 0.85rem; 
-            opacity: 0.6; 
-        }
-
-        /* ----- DESKTOP OPTIMIZATION (Min-width: 768px) ----- */
+        /* Desktop Optimization */
         @media (min-width: 768px) {
             .container { max-width: 1200px; padding: 0 2.5rem; }
-            
-            /* Header Expansion */
             header { padding: 1.25rem 0; }
             .header-content { flex-direction: row; justify-content: space-between; align-items: center; gap: 2rem; }
-            .logo-img { max-height: 85px; } /* Breathable size for desktop */
+            .logo-img { max-height: 85px; } 
             nav ul { font-size: 0.95rem; gap: 2rem; justify-content: flex-end; }
             
-            /* Hero Expansion */
-            .hero { padding: 8rem 0 9rem; }
+            .hero { padding: 10rem 0 11rem; }
             .hero h1 { font-size: 4.5rem; margin-bottom: 1.5rem; letter-spacing: -1px; }
             .hero p { font-size: 1.25rem; margin-bottom: 3rem; max-width: 700px; }
             
-            /* Layout & Spacing */
-            section { padding: 6rem 0; }
-            .section-title { font-size: 2.75rem; margin-bottom: 4rem; }
+            section { padding: 7rem 0; }
+            .section-title { font-size: 3rem; margin-bottom: 4rem; }
             .trust-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
             .trust-item { padding: 1rem; font-size: 1rem; }
             
             .grid-2 { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
             .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
             
-            .card { padding: 3rem 2.5rem; text-align: left; }
-            .card h3 { font-size: 1.5rem; }
-            .card p { font-size: 1rem; }
-            
-            /* Footer Expansion */
             .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; text-align: left; }
             .footer-logo { margin: 0 0 1.5rem 0; max-width: 140px; }
         }
@@ -320,7 +269,7 @@
                 <h1>SLEEP BETTER. <br><span>LIVE BETTER.</span></h1>
                 <p>Leicester's No. 1 Bed & Mattress Shop. Over 27 years of providing the East Midlands with premium beds at unbeatable prices.</p>
                 <div style="display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="#offers" class="btn">View Mega Sale</a>
+                    <a href="#offers" class="btn">Shop The Sale</a>
                     <a href="#locations" class="btn btn-outline">Find Our Stores</a>
                 </div>
             </div>
@@ -335,67 +284,93 @@
             </div>
         </div>
 
-        <section id="ranges" class="container">
-            <h2 class="section-title">OUR RANGES</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <h3>Mattresses</h3>
-                    <p>From memory foam to pocket sprung, find the perfect support for your sleep style. We stock all standard UK sizes.</p>
-                </div>
-                <div class="card">
-                    <h3>Divan Beds</h3>
-                    <p>Maximize your bedroom space with our customized divan bases, featuring multiple storage drawer configurations.</p>
-                </div>
-                <div class="card">
-                    <h3>Bed Frames</h3>
-                    <p>Complete your room's aesthetic. Browse our extensive selection of wooden, metal, and upholstered bed frames.</p>
+        <section id="ranges" class="bg-white">
+            <div class="container">
+                <h2 class="section-title">OUR PREMIUM RANGES</h2>
+                <div class="grid-3">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=600&q=80" alt="Premium Mattresses" class="card-img">
+                        <div class="card-content">
+                            <h3>Mattresses</h3>
+                            <p>From memory foam to pocket sprung, find the perfect support for your sleep style. We stock all standard UK sizes.</p>
+                            <a href="#contact" class="btn btn-outline" style="width: 100%;">Enquire Now</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80" alt="Divan Beds" class="card-img">
+                        <div class="card-content">
+                            <h3>Divan Beds</h3>
+                            <p>Maximize your bedroom space with our customized divan bases, featuring multiple storage drawer configurations.</p>
+                            <a href="#contact" class="btn btn-outline" style="width: 100%;">Enquire Now</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80" alt="Bed Frames" class="card-img">
+                        <div class="card-content">
+                            <h3>Bed Frames</h3>
+                            <p>Complete your room's aesthetic. Browse our extensive selection of wooden, metal, and upholstered bed frames.</p>
+                            <a href="#contact" class="btn btn-outline" style="width: 100%;">Enquire Now</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="offers" class="bg-white">
+        <section id="offers" class="pattern-bg">
             <div class="container">
                 <h2 class="section-title">CURRENT MEGA SALE</h2>
                 <div class="grid-2">
-                    <div class="card" style="border-top-color: var(--primary-green);">
-                        <h3>Hybrid Pocket Sprung Mattress</h3>
-                        <p>Our top-selling hybrid mattress combining the support of pocket springs with premium comfort layers.</p>
-                        <span class="price"><strike>£499</strike> £269 <span style="font-size: 1rem; color: var(--text-dark); font-weight: normal; font-family: var(--font-body);">(Double)</span></span>
-                        <p style="font-size: 0.85rem; margin-top: 1rem;"><em>*King Size also reduced to £289. Limited Time Offer - First come, first served!</em></p>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1582582621959-48d27397dc69?auto=format&fit=crop&w=800&q=80" alt="Hybrid Mattress" class="card-img">
+                        <div class="card-content">
+                            <h3>Hybrid Pocket Sprung Mattress</h3>
+                            <p>Our top-selling hybrid mattress combining the support of pocket springs with premium comfort layers.</p>
+                            <span class="price"><strike>£499</strike> £269 <span style="font-size: 1rem; color: var(--text-dark); font-weight: normal; font-family: var(--font-body);">(Double)</span></span>
+                            <p style="font-size: 0.85rem; margin-bottom: 0;"><em>*King Size also reduced to £289. Limited Time Offer - First come, first served!</em></p>
+                        </div>
                     </div>
-                    <div class="card" style="border-top-color: var(--primary-green);">
-                        <h3>SleepSoul Comfort 800</h3>
-                        <p>Incredible value pocket mattress. Features 800 individual pocket springs for tailored support.</p>
-                        <span class="price"><strike>£184.95</strike> £99 <span style="font-size: 1rem; color: var(--text-dark); font-weight: normal; font-family: var(--font-body);">(Special Offer)</span></span>
-                        <p style="font-size: 0.85rem; margin-top: 1rem;"><em>*Includes a massive 10 Year Warranty for ultimate peace of mind.</em></p>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1558211583-03ed7c8273dc?auto=format&fit=crop&w=800&q=80" alt="SleepSoul Mattress" class="card-img">
+                        <div class="card-content">
+                            <h3>SleepSoul Comfort 800</h3>
+                            <p>Incredible value pocket mattress. Features 800 individual pocket springs for tailored support.</p>
+                            <span class="price"><strike>£184.95</strike> £99 <span style="font-size: 1rem; color: var(--text-dark); font-weight: normal; font-family: var(--font-body);">(Special Offer)</span></span>
+                            <p style="font-size: 0.85rem; margin-bottom: 0;"><em>*Includes a massive 10 Year Warranty for ultimate peace of mind.</em></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="container">
-            <h2 class="section-title">WHY CHOOSE BED CITY?</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <h3>Leicester's Trusted Bed Experts</h3>
-                    <p>Established in Leicester in 1999, we have over 27 years of dedicated experience in the bedding industry. In 2021, we proudly expanded with a second branch in Loughborough. We pride ourselves on honest advice and zero-pressure sales.</p>
-                </div>
-                <div class="card">
-                    <h3>Fast & Reliable Delivery</h3>
-                    <p>Don't wait weeks for a good night's rest. We offer <strong style="color: var(--brand-dark);">Next Day Delivery on 98% of our mattresses</strong>. In some cases, we can even accommodate same-day delivery. Ask in-store for details about delivery to your specific postcode.</p>
+        <section id="about" class="bg-white">
+            <div class="container">
+                <h2 class="section-title">WHY CHOOSE BED CITY?</h2>
+                <div class="grid-2">
+                    <div class="feature-card">
+                        <h3>Leicester's Trusted Bed Experts</h3>
+                        <p>Established in Leicester in 1999, we have over 27 years of dedicated experience in the bedding industry. In 2021, we proudly expanded with a second branch in Loughborough. We pride ourselves on honest advice and zero-pressure sales.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Fast & Reliable Delivery</h3>
+                        <p>Don't wait weeks for a good night's rest. We offer <strong>Next Day Delivery on 98% of our mattresses</strong>. In some cases, we can even accommodate same-day delivery. Ask in-store for details about delivery to your specific postcode.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="bg-white">
+        <section id="contact" class="pattern-bg">
             <div class="container">
                 <h2 class="section-title">GET IN TOUCH</h2>
                 <form class="contact-form" action="#" method="POST">
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Have a question?</h3>
+                        <p style="color: #64748b;">Drop us a message or call us at <strong>0116 2559140</strong></p>
+                    </div>
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
                     <input type="tel" name="phone" placeholder="Phone Number">
                     <textarea name="message" placeholder="How can we help you?" required></textarea>
-                    <button type="submit" class="btn">Send Message</button>
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
                 </form>
             </div>
         </section>
